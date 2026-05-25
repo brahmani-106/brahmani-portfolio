@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌱 Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     ROOT VARIABLES
+  ============================================ */
+  :root {
+    --red:        #D12128;
+    --red-dark:   #b01a20;
+    --navy:       #01344F;
+    --navy-light: #02486e;
+    --cream:      #FAE3AC;
+    --cream-dark: #f0d48a;
+    --white:      #fff8f0;
+  }
+
+  /* ============================================
+     RESET & BASE
+  ============================================ */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* ============================================
+     NAVIGATION
+  ============================================ */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 4rem;
+    background-color: var(--navy);
+    border-bottom: 3px solid var(--red);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: 2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+  }
+
+  .nav-links a {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cream);
+    transition: color 0.25s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--red);
+  }
+
+  /* ============================================
+     HERO SECTION
+  ============================================ */
+  #hero {
+    min-height: 100vh;
+    background-color: var(--navy);
+    display: flex;
+    align-items: center;
+    padding: 9rem 4rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Large background watermark text */
+  .hero-watermark {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(6rem, 18vw, 16rem);
+    font-weight: 900;
+    color: rgba(250, 227, 172, 0.04);
+    letter-spacing: -0.05em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* Decorative stars */
+  .hero-star {
+    position: absolute;
+    color: var(--red);
+    pointer-events: none;
+    animation: twinkle 3s infinite alternate ease-in-out;
+  }
+
+  .hero-star:nth-child(1) { top: 15%; left: 8%;  font-size: 1.8rem; animation-delay: 0s; }
+  .hero-star:nth-child(2) { top: 22%; right: 12%; font-size: 1.2rem; animation-delay: 0.6s; }
+  .hero-star:nth-child(3) { top: 60%; left: 5%;  font-size: 1rem;   animation-delay: 1.1s; }
+  .hero-star:nth-child(4) { bottom: 22%; right: 7%; font-size: 1.5rem; animation-delay: 0.3s; }
+  .hero-star:nth-child(5) { top: 42%; right: 22%; font-size: 0.9rem; animation-delay: 1.7s; }
+  .hero-star:nth-child(6) { bottom: 35%; left: 18%; font-size: 0.8rem; animation-delay: 2s; }
+
+  @keyframes twinkle {
+    from { opacity: 0.2; transform: scale(0.9); }
+    to   { opacity: 1;   transform: scale(1.1); }
+  }
+
+  /* Hero main content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 950px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--cream);
+    border: 1px solid var(--red);
+    padding: 0.45rem 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-greeting {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--red);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4rem, 11vw, 9rem);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+
+  .hero-name .accent {
+    color: var(--red);
+  }
+
+  .hero-description {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(250, 227, 172, 0.72);
+    max-width: 520px;
+    margin-bottom: 2.8rem;
+  }
+
+  /* CTA buttons */
+  .hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background-color: var(--red);
+    color: var(--cream);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    border: 2px solid var(--red);
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--red-dark);
+    border-color: var(--red-dark);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--cream);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    border: 2px solid rgba(250, 227, 172, 0.5);
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+
+  .btn-outline:hover {
+    background-color: var(--cream);
+    color: var(--navy);
+    border-color: var(--cream);
+  }
+
+  /* Scroll indicator */
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(250, 227, 172, 0.35);
+    writing-mode: vertical-rl;
+  }
+
+  .hero-scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 55px;
+    background-color: var(--red);
+  }
+
+  /* ============================================
+     SHARED SECTION STYLES
+  ============================================ */
+  .section {
+    padding: 6rem 4rem;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--navy);
+    margin-bottom: 3.5rem;
+  }
+
+  /* ============================================
+     ABOUT SECTION
+  ============================================ */
+  #about {
+    background-color: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* Photo frame */
+  .about-photo-wrapper {
+    position: relative;
+  }
+
+  .about-photo-frame {
+    width: 100%;
+    padding-top: 125%;
+    background-color: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-photo-inner {
+    position: absolute;
+    inset: 12px;
+    background-color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Replace this with an <img> tag if you have a photo */
+  .about-photo-placeholder {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 900;
+    color: var(--navy);
+    opacity: 0.3;
+  }
+
+  .about-photo-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Red badge */
+  .about-badge {
+    position: absolute;
+    bottom: -1.8rem;
+    right: -1.8rem;
+    width: 130px;
+    height: 130px;
+    background-color: var(--red);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .about-badge .badge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .about-badge .badge-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(250, 227, 172, 0.85);
+    margin-top: 0.3rem;
+  }
+
+  /* About text side */
+  .about-text {}
+
+  .about-intro {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #2a4a60;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Stats grid */
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .stat-box {
+    border: 1.5px solid var(--navy);
+    padding: 1.2rem 1rem;
+  }
+
+  .stat-box .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .stat-box .stat-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    opacity: 0.55;
+    margin-top: 0.3rem;
+  }
+
+  /* Contact row */
+  .about-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--navy);
+  }
+
+  .about-contact a {
+    color: var(--red);
+  }
+
+  .about-contact a:hover {
+    text-decoration: underline;
+  }
+
+  /* ============================================
+     SKILLS SECTION
+  ============================================ */
+  #skills {
+    background-color: var(--navy);
+  }
+
+  #skills .section-title {
+    color: var(--cream);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .skill-category {
+    border: 1px solid rgba(250, 227, 172, 0.18);
+    padding: 2.2rem;
+  }
+
+  .skill-category-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--red);
+  }
+
+  .skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--cream);
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(250, 227, 172, 0.07);
+  }
+
+  .skill-item:last-child {
+    border-bottom: none;
+  }
+
+  .skill-dot {
+    width: 7px;
+    height: 7px;
+    background-color: var(--red);
+    flex-shrink: 0;
+    transform: rotate(45deg);
+  }
+
+  /* ============================================
+     WORK / EXPERIENCE SECTION
+  ============================================ */
+  #experience {
+    background-color: var(--cream);
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .work-card {
+    background-color: var(--navy);
+    padding: 2.8rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Left red border accent */
+  .work-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--red);
+  }
+
+  /* Top-right decorative star */
+  .work-card::after {
+    content: '✦';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.8rem;
+    font-size: 1.2rem;
+    color: rgba(209, 33, 40, 0.25);
+  }
+
+  .work-year {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+
+  .work-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+
+  .work-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    color: rgba(250, 227, 172, 0.45);
+    margin-bottom: 1.5rem;
+  }
+
+  .work-description {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(250, 227, 172, 0.72);
+    margin-bottom: 1.8rem;
+  }
+
+  /* Tool tags */
+  .work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .work-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--red);
+    border: 1px solid rgba(209, 33, 40, 0.45);
+    padding: 0.28rem 0.7rem;
+  }
+
+  /* ============================================
+     CERTIFICATIONS PAGE SECTION
+  ============================================ */
+  #certifications {
+    background-color: var(--navy);
+    padding: 6rem 4rem;
+  }
+
+  #certifications .section-title {
+    color: var(--cream);
+  }
+
+  .cert-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .cert-block {
+    background-color: var(--red);
+    padding: 3rem 2.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cert-block::after {
+    content: attr(data-num);
+    position: absolute;
+    bottom: -1.5rem;
+    right: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(250, 227, 172, 0.07);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .cert-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(250, 227, 172, 0.5);
+    margin-bottom: 0.8rem;
+  }
+
+  .cert-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 900;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 1.2rem;
+  }
+
+  .cert-provider {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(250, 227, 172, 0.6);
+    margin-bottom: 1.5rem;
+  }
+
+  .cert-skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cert-skill {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(250, 227, 172, 0.82);
+  }
+
+  .cert-skill::before {
+    content: '◆';
+    font-size: 0.45rem;
+    color: var(--cream);
+    opacity: 0.6;
+    flex-shrink: 0;
+  }
+
+  .cert-status {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cream);
+    border: 1px solid rgba(250, 227, 172, 0.5);
+    padding: 0.3rem 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  /* ============================================
+     FOOTER
+  ============================================ */
+  footer {
+    background-color: var(--navy);
+    border-top: 3px solid var(--red);
+    padding: 3rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--cream);
+    letter-spacing: 2px;
+  }
+
+  .footer-tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(250, 227, 172, 0.5);
+    margin-top: 0.3rem;
+  }
+
+  .footer-copy {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(250, 227, 172, 0.35);
+    text-align: right;
+  }
+
+  /* ============================================
+     SCROLL ANIMATIONS
+  ============================================ */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+  /* ============================================
+     RESPONSIVE — TABLET & MOBILE
+  ============================================ */
+  @media (max-width: 900px) {
+    nav         { padding: 1rem 2rem; }
+    .section    { padding: 5rem 2rem; }
+    #hero       { padding: 8rem 2rem 5rem; }
+
+    #about {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-photo-wrapper {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    .skills-grid  { grid-template-columns: 1fr; }
+    .work-grid    { grid-template-columns: 1fr; }
+    .cert-blocks  { grid-template-columns: 1fr; }
+    footer        { flex-direction: column; text-align: center; padding: 2rem; }
+    .footer-copy  { text-align: center; }
+  }
+
+  @media (max-width: 560px) {
+    .hero-name    { font-size: 3.5rem; }
+    .hero-buttons { flex-direction: column; }
+    .btn-primary,
+    .btn-outline  { text-align: center; }
+    .about-stats  { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATION ==================== -->
+  <nav>
+    <div class="nav-logo">B.</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Work</a></li>
+      <li><a href="#certifications">Certs</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero">
+
+    <p class="hero-watermark" aria-hidden="true">BRAHMANI</p>
+
+    <!-- Stars -->
+    <span class="hero-star" aria-hidden="true">✦</span>
+    <span class="hero-star" aria-hidden="true">✦</span>
+    <span class="hero-star" aria-hidden="true">★</span>
+    <span class="hero-star" aria-hidden="true">✦</span>
+    <span class="hero-star" aria-hidden="true">✶</span>
+    <span class="hero-star" aria-hidden="true">✦</span>
+
+    <div class="hero-content">
+      <span class="hero-tag">Digital Marketer · Content Creator</span>
+      <p class="hero-greeting">¡Hola! &nbsp; Hello!</p>
+      <h1 class="hero-name">BRAH<span class="accent">MANI</span></h1>
+    
+      <div class="hero-buttons">
+        <a href="#about" class="btn-primary">Know Me</a>
+        <a href="#experience" class="btn-outline">See My Work</a>
+      </div>
+    </div>
+
+    <p class="hero-scroll-hint" aria-hidden="true">Scroll</p>
+
+  </section>
+
+
+  <!-- ==================== ABOUT ==================== -->
+  <section id="about" class="section">
+
+    <!-- Photo column -->
+    <div class="about-photo-wrapper fade-up">
+      <div class="about-photo-frame">
+        <div class="about-photo-inner">
+          <!--
+            TO ADD YOUR PHOTO:
+            Replace the div below with:
+            <img src="your-photo.jpg" alt="Brahmini">
+          -->
+        <img src="photome.jpeg" alt="Brahmani">          
+        </div>
+      </div>
+      <div class="about-badge" aria-label="ME">
+        <span class="badge-num">Me</span>
+        <span class="badge-label">Brahmani</span>
+      </div>
+    </div>
+
+    <!-- Text column -->
+    <div class="about-text fade-up">
+      <p class="section-label">— Who I Am</p>
+      <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3.8rem);">About<br>Me</h2>
+
+      <p class="about-intro">
+        Hi, I'm a final year Computer Science student and digital marketer
+        based in Guntur, India.
+        I've worked on product packaging Design and social media content with using AI tools.My passion is in visual storytelling, digital media and aesthetics,
+        creating content that resonates and connects.
+      </p>
+
+      <div class="about-stats">
+
+    <div class="stat-box">
+        <div class="stat-num">🎓</div>
+        <div class="stat-label">
+            Final Year <br>
+            R.V.R & J.C Engineering College
+        </div>
+    </div>
+
+    <div class="stat-box">
+        <div class="stat-num">✉</div>
+        <div class="stat-label">
+            <a href="mailto:kotapatibrahmani.13@email.com">
+                kotapatibrahmani.13@email.com
+            </a>
+        </div>
+    </div>
+
+    <div class="stat-box">
+        <div class="stat-num">in</div>
+        <div class="stat-label">
+            <a href="https://www.linkedin.com/in/brahmani-kotapati-58b746347/"
+               target="_blank"
+               rel="noopener noreferrer">
+                LinkedIn Profile
+            </a>
+        </div>
+    </div>
+
+</div>
+        
+
+  </section>
+
+
+  <!-- ==================== SKILLS ==================== -->
+  <section id="skills" class="section">
+    <p class="section-label">— What I Bring</p>
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-category fade-up">
+        <p class="skill-category-title">Marketing</p>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot"></span> Google Search Ads</div>
+          <div class="skill-item"><span class="skill-dot"></span> YouTube SEO &amp; YouTube Studio</div>
+          <div class="skill-item"><span class="skill-dot"></span> Instagram </div>
+          <div class="skill-item"><span class="skill-dot"></span> Keyword Research</div>
+        </div>
+      </div>
+
+      <div class="skill-category fade-up">
+        <p class="skill-category-title">Tools</p>
+        <div class="skill-items">
+          <div class="skill-item"><span class="skill-dot"></span> Canva</div>
+          <div class="skill-item"><span class="skill-dot"></span> Clipclamp (Video Editing)</div>
+          <div class="skill-item"><span class="skill-dot"></span> ChatGPT &amp; Claude Projects</div>
+          <div class="skill-item"><span class="skill-dot"></span> Prompt Engineering</div>
+          <div class="skill-item"><span class="skill-dot"></span> 11Labs (AI Voiceover)</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== WORK / EXPERIENCE ==================== -->
+  <section id="experience" class="section">
+    <p class="section-label">— What I've Done</p>
+    <h2 class="section-title">Work</h2>
+
+    <div class="work-grid">
+
+      <div class="work-card fade-up">
+        <p class="work-year">Mar 2026 – Present</p>
+        <h3 class="work-title">Cortex Deep Waves</h3>
+        <p class="work-subtitle">YouTube Channel · Content Creator &amp; SEO Strategist</p>
+        <p class="work-description">
+          Grew a Binaural Beats YouTube channel to 500+ subscribers and 5,000+ views on overall channel.
+          Managed the full content pipeline with the help of Claude and uploading music, visuals, thumbnails, and
+          optimization. Reworked titles, descriptions, and playlists which noticeably
+          improved CTR and impressions over time.
+        </p>
+        <div class="work-tags">
+          <span class="work-tag">YouTube SEO</span>
+          <span class="work-tag">Canva</span>
+          <span class="work-tag">Midjourney</span>
+          <span class="work-tag">AI Content</span>
+        </div>
+      </div>
+
+      <div class="work-card fade-up">
+  <p class="work-year">2026</p>
+  <h3 class="work-title">Product Packaging & Social Media</h3>
+  <p class="work-subtitle">D2C Beauty Brand · Volunteer · AI-Powered Design</p>
+  <p class="work-description">
+    Volunteered with an emerging D2C beauty brand to design their product
+    packaging and brand visuals using Canva and AI tools. Created and
+    published Instagram posts of products.
+  </p>
+  <div class="work-tags">
+    <span class="work-tag">Instagram Content</span>
+    <span class="work-tag">Canva</span>
+    <span class="work-tag">AI Tools</span>
+    
+  </div>
+</div>
+    </div>
+  </section>
+
+
+  <!-- ==================== CERTIFICATIONS ==================== -->
+  <section id="certifications">
+    <p class="section-label">— What I've Earned</p>
+    <h2 class="section-title">Certifications</h2>
+
+    <div class="cert-blocks">
+
+      <div class="cert-block fade-up" data-num="01">
+        <p class="cert-num">01</p>
+        <h3 class="cert-name">Digital Marketing Professional</h3>
+        <p class="cert-provider">Amquest Institute</p>
+        <div class="cert-skills-list">
+          <span class="cert-skill">SEO &amp; Keyword Research</span>
+          <span class="cert-skill">Google Search Ads</span>
+          <span class="cert-skill">Google Analytics</span>
+          <span class="cert-skill">Content Strategy</span>
+          <span class="cert-skill">Campaign Reporting</span>
+        </div>
+        <span class="cert-status">Completed</span>
+      </div>
+
+      <div class="cert-block fade-up" data-num="02">
+        <p class="cert-num">02</p>
+        <h3 class="cert-name">Performance Marketing-TuteDude</h3>
+        <p class="cert-provider">Online Certification</p>
+        <div class="cert-skills-list">
+          <span class="cert-skill">Meta Ads (Facebook &amp; Instagram)</span>
+          <span class="cert-skill">Google Ads – Search &amp; Display</span>
+          <span class="cert-skill">Conversion Tracking</span>
+        </div>
+        <span class="cert-status">In Progress</span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <div>
+      <p class="footer-logo">K.Brahmani.</p>
+    </div>
+    <p class="footer-copy">© 2026 Brahmani &nbsp;·&nbsp; All rights reserved</p>
+  </footer>
+
+
+  <!-- ==================== SCROLL ANIMATION SCRIPT ==================== -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+  </script>
+
+</body>
+</html>
